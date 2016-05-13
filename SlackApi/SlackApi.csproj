@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{96B6F535-5DA7-408F-ACCF-32C1A314DFB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SlackApi</RootNamespace>
+    <AssemblyName>SlackApi</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MargieBot">
+      <HintPath>..\Dependencies\MargieBot.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="interfaces\ICommands.cs" />
+    <Compile Include="interfaces\ISlackBot.cs" />
+    <Compile Include="interfaces\ITriviaController.cs" />
+    <Compile Include="interfaces\IWordList.cs" />
+    <Compile Include="objects\AttendanceNotification.cs" />
+    <Compile Include="objects\AttendanceCheck.cs" />
+    <Compile Include="objects\Commands.cs" />
+    <Compile Include="objects\Configuration.cs" />
+    <Compile Include="interfaces\IAttendanceNotification.cs" />
+    <Compile Include="interfaces\IConfiguration.cs" />
+    <Compile Include="interfaces\IModerator.cs" />
+    <Compile Include="interfaces\IQuiz.cs" />
+    <Compile Include="interfaces\IScripting.cs" />
+    <Compile Include="interfaces\ISlackInterface.cs" />
+    <Compile Include="objects\SlackBot.cs" />
+    <Compile Include="objects\SlackInterface.cs" />
+    <Compile Include="objects\WordList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="responders\AutoModeratorResponder.cs" />
+    <Compile Include="responders\CommandResponder.cs" />
+    <Compile Include="responders\HistoryResponder.cs" />
+    <Compile Include="responders\ScriptingResponder.cs" />
+    <Compile Include="responders\TriviaResponder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RepositoryEngine\RepositoryEngine.csproj">
+      <Project>{1E59E90C-39CD-4827-BEB2-986580E3C3C4}</Project>
+      <Name>RepositoryEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScriptingEngine\ScriptingEngine.csproj">
+      <Project>{BF4B9F45-A101-4777-897A-20653DB6AC27}</Project>
+      <Name>ScriptingEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TriviaBot\TriviaBot.csproj">
+      <Project>{6F5B2E5C-8921-467B-BAAB-5924CE1592F3}</Project>
+      <Name>TriviaBot</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

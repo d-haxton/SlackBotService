@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="SlackManager.View.WelcomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SlackManager.View"
+      mc:Ignorable="d" 
+      DataContext="{Binding WelcomeDataContext, Source={StaticResource Locator}}"
+      d:DesignHeight="300" d:DesignWidth="300" FontSize="18">
+    <Grid>
+        <StackPanel>
+                <Image Width="250" Source="http://cdn87.psbin.com/img/mw=594/mh=222/cr=n/d=hvb9z/qdj0t851u7s5jg4v.jpg"/>
+                <Label>Welcome to the CUW CS Slack Manager.</Label>
+            <Label>You can find the following information here.</Label>
+            <Label>History - A list of all messages sent to slack received since the chatbot has gone online.</Label>
+            <Label>Users - A list of all users currently set with permissions in the slack bot.</Label>
+            <Label>Scripts - A list of all scripts currently in the datastore for users to run and have ran.</Label>
+            <Label>Quizzes - A list of all quizzes taken and saved within the app.</Label>
+            <Label>Attendance - A list of all attendance notifications and api calls from the bot.</Label>
+            <Label>Trivia - A list of all trivia questions and answers used in the trivia bot.</Label>
+        </StackPanel>
+    </Grid>
+</UserControl>
